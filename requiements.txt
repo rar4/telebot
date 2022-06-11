@@ -1,0 +1,4 @@
+aiogram==2.20
+opencv-python==4.5.5.64
+opencv-pyton-headless==4.5.4.60
+easyocr==1.4.2
