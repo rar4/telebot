@@ -3,7 +3,16 @@ from aiogram.utils import executor
 import cv2
 import easyocr
 
-bot = Bot(token='5476184332:AAE2b3f0lAnNrSI3k9pP5dN08T4Il2kKQ14')
+
+with open('token', 'r') as t:
+    text = t.read()
+    if text == '':
+        token = input('input token: ')
+        with open('token', 'w') as tx:
+            tx.write(token)
+
+with open('token', 'r') as t:
+    bot = Bot(token= t.read())
 
 dispacher = Dispatcher(bot)
 
