@@ -19,14 +19,11 @@ dispacher = Dispatcher(bot)
 
 @dispacher.message_handler(commands=['start'])
 async def starter(message: types.Message):
-    """
-
-    start comand hendler
-    """
+    """start comand hendler """
     await message.reply(" Hello it is a scaner bot. \nYou can sand image there and recive text from it,"
                         " it scans only english and russian text."
                         "\n DISCLAMER"
-                        "\n This bot can scan scan inexactly.")
+                        "\n This bot can scan incorectly.")
 
 
 @dispacher.message_handler(content_types=types.ContentType.PHOTO)
