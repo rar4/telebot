@@ -12,7 +12,7 @@ with open('token', 'r') as t:
             tx.write(token)
 
 with open('token', 'r') as t:
-    bot = Bot(token= t.read())
+    bot = Bot(token=t.read())
 
 dispacher = Dispatcher(bot)
 
@@ -30,9 +30,8 @@ async def starter(message: types.Message):
 async def scan_message(message: types.Message):
 
     print('start')
-    """
-scans text from photos which you sends to this bot
-    """
+    """scans text from photos which you sends to this bot"""
+
     chat_id = message.from_user.id
 
     imdict = await bot.get_file(message.photo[-1].file_id)
@@ -51,10 +50,10 @@ scans text from photos which you sends to this bot
     gray = cv2.resize(gray, (1024, 767))
     txt = easyocr.Reader(['en', 'ru'])
 
-    text = txt.readtext(gray, detail=0)
-    string += text[0]
-    text.pop(0)
-    for i in text:
+    scanned_text = txt.readtext(gray, detail=0)
+    string += scanned_text[0]
+    scanned_text.pop(0)
+    for i in scanned_text:
         string += f' {i}'
 
     await dispacher.bot.send_message(chat_id=chat_id, text=string)
